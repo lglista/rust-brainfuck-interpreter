@@ -78,7 +78,7 @@ pub mod active_environment{
             let mut number_values: String = "".to_owned();
             let mut array_numbers: String = "".to_owned();
             for num in -5..6 {
-                let correct_index = self.get_index(self.interpreter.index, num);
+                let correct_index = self.get_index(num);
                 number_values.push_str(&self.correct_length_string(&self.interpreter.array[correct_index].to_string(), 7u8));
                 array_numbers.push_str("[");
                 array_numbers.push_str(&self.correct_length_string(&correct_index.to_string(), 5u8));
@@ -90,7 +90,7 @@ pub mod active_environment{
             println!("                                      ^                                      ");
         }
 
-        fn get_index(&self, index: usize, num_to_add: i8) -> usize {
+        fn get_index(&self, num_to_add: i8) -> usize {
             let mut val: usize = self.interpreter.index;
             if num_to_add < 0 {
                 for _ in 0..num_to_add.abs() {

@@ -1,7 +1,6 @@
 mod interpreter;
 mod syntax_checker;
 mod active_environment;
-use std::env;
 
 use crate::interpreter::interpreter::Interpreter;
 use crate::syntax_checker::syntax_checker::SyntaxChecker;
