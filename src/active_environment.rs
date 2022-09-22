@@ -6,14 +6,18 @@ pub mod active_environment{
 
     pub struct ActiveEnvironment {
         interpreter: Interpreter,
-        syntax_checker: SyntaxChecker
+        syntax_checker: SyntaxChecker,
+        save_input_in_file: bool,
+        pub input_to_save: String
     }
 
     impl ActiveEnvironment {
-        pub fn new() -> ActiveEnvironment {
+        pub fn new(save_input: bool) -> ActiveEnvironment {
             let i = Interpreter::new();
             let s = SyntaxChecker::new();
-            let ae = ActiveEnvironment{interpreter: i, syntax_checker: s};
+            let inp = String::new();
+            let ae = ActiveEnvironment{interpreter: i, syntax_checker: s,
+                save_input_in_file: save_input, input_to_save: inp};
             return ae;
         }
 
@@ -54,6 +58,10 @@ pub mod active_environment{
         fn interpret_line(&mut self, line: &str) {
             if self.syntax_checker.syntax_is_correct(line) {
                 self.interpreter.interpret(line);
+                if self.save_input_in_file {
+                    self.input_to_save.push_str(line);
+                }
+                
             }
         }
 
