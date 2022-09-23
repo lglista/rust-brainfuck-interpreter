@@ -59,7 +59,7 @@ pub mod active_environment{
             if self.syntax_checker.syntax_is_correct(line) {
                 self.interpreter.interpret(line);
                 if self.save_input_in_file {
-                    self.input_to_save.push_str(line);
+                    self.input_to_save.push_str(&(line.to_string() + "\n"));
                 }
                 
             }
