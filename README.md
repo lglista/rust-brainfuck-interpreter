@@ -1,7 +1,7 @@
 # rust-brainfuck-interpreter
 Brainfuck interpreter that accepts input line by line through a prompt.
 
-Run with `cargo run` from the top level directory, or run the executable created by `cargo build` in target/debug/. To allow for command line arguments with the former, you must run `cargo run -- [args]`.
+Run with `cargo run` from the top level directory, or run the executable created by `cargo build` in target/debug/. To allow for command line arguments with the former, you must run `cargo run -- [args]`. Alternatively, you may download the binary from the releases section of this repository.
 
 This interpreter keeps state through each command. See below for a list of commands.
 
