@@ -1,9 +1,14 @@
 # rust-brainfuck-interpreter
 Brainfuck interpreter that accepts input line by line through a prompt.
 
-Run with `cargo run` from the top level directory
+Run with `cargo run` from the top level directory, or run the executable created by `cargo build` in target/debug/. To allow for command line arguments with the former, you must run `cargo run -- [args]`.
 
 This interpreter keeps state through each command. See below for a list of commands.
+
+# Command Line Arguments
+| Command | Explanation |
+| ------- | ----------- |
+| --save-commands, -s | Passing this command saves the brainfuck commands executed throughout the lifetime of the program as well as any tape resets. A filename is expected after this argument to save the commands to. This file will be created/overwritten in the directory that this program is run in. If no filename is supplied, the default filename is `foo.bf`.
 
 # Brainfuck commands
 | Command | Explanation |
