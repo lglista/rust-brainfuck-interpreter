@@ -44,7 +44,7 @@ pub mod active_environment{
                 match character {
                     'p' => self.print_status(),
                     'q' => return,
-                    'r' => self.interpreter.reset(),
+                    'r' => self.reset_tape(),
                     'h' => self.print_help(),
                      _  => self.interpret_line(line)
                 }
@@ -53,6 +53,13 @@ pub mod active_environment{
                 self.interpret_line(line);
             }
             self.read_and_process_input();
+        }
+
+        fn reset_tape(&mut self) {
+            self.interpreter.reset();
+            if self.save_input_in_file {
+                self.input_to_save.push_str("RESET TAPE\n");
+            }
         }
 
         fn interpret_line(&mut self, line: &str) {
